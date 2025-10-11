@@ -47,7 +47,7 @@ You can view the live demo here:
 ➡️ [Live URL](http://mysite-lb-354751140.us-east-1.elb.amazonaws.com)
 
 Or watch the video demonstration:
-🎬 [Project Video Link](https://youtu.be/example)
+🎬 [Project Video Link](https://drive.google.com/file/d/1nh-T5fZORuJDmKxBSGX5mpN-vlX5B3Ia/view?usp=drive_link)
 
 ---
 
