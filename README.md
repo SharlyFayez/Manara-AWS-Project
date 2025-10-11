@@ -1,2 +1,58 @@
-# Manara-AWS-Project
-Deploy a simple web application on AWS using EC2 instances, ensuring high availability and scalability with Elastic Load Balancing (ALB) and Auto Scaling Groups (ASG). The project demonstrates best practices for compute scalability, security, and cost optimization.
+# AWS Web Application Deployment Project
+
+## 📖 Overview
+This project demonstrates the deployment of a scalable and highly available static web application on AWS using:
+- EC2
+- Application Load Balancer
+- Auto Scaling Group
+- IAM Roles
+- CloudWatch & SNS Alerts
+
+---
+
+## 🏗️ Architecture Diagram
+![Architecture Diagram](./architecture-diagram.png)
+
+---
+
+## ⚙️ Components Used
+
+| Component | Description |
+|------------|--------------|
+| **EC2** | Hosts the static web application |
+| **Load Balancer (ALB)** | Distributes incoming traffic across multiple instances |
+| **Auto Scaling Group** | Automatically adjusts the number of instances based on demand |
+| **IAM Role** | Provides secure access for instances to AWS services |
+| **CloudWatch & SNS** | Monitors performance and sends alerts |
+| **Route 53** *(optional)* | Manages DNS for custom domain |
+| **S3** *(optional)* | Stores backups or logs |
+
+---
+
+## 🚀 Deployment Steps
+1. Launch EC2 Instance and deploy website files.
+2. Create a Load Balancer and attach instances via Target Group.
+3. Configure Auto Scaling Group linked to Launch Template.
+4. Attach IAM Role to EC2 instances.
+5. Set up CloudWatch alarms and SNS topics for alerts.
+6. (Optional) Configure HTTPS via ACM Certificate and Route 53 domain.
+
+---
+
+## 🔔 Monitoring
+CloudWatch alarms are configured to trigger SNS notifications when CPU utilization exceeds thresholds.
+
+---
+
+## 🎥 Demo (Optional)
+You can view the live demo here:
+➡️ [Live URL](https://example.com)
+
+Or watch the video demonstration:
+🎬 [Project Video Link](https://youtu.be/example)
+
+---
+
+## 👩‍💻 Author
+**Sharly Fayez**  
+AWS Project
