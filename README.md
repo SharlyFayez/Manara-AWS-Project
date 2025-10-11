@@ -46,7 +46,7 @@ CloudWatch alarms are configured to trigger SNS notifications when CPU utilizati
 
 ## 🎥 Demo (Optional)
 You can view the live demo here:
-➡️ [Live URL](https://example.com)
+➡️ [Live URL](mysite-lb-354751140.us-east-1.elb.amazonaws.com)
 
 Or watch the video demonstration:
 🎬 [Project Video Link](https://youtu.be/example)
