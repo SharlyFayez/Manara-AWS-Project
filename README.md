@@ -24,7 +24,6 @@ This project demonstrates the deployment of a scalable and highly available stat
 | **Auto Scaling Group** | Automatically adjusts the number of instances based on demand |
 | **IAM Role** | Provides secure access for instances to AWS services |
 | **CloudWatch & SNS** | Monitors performance and sends alerts |
-| **Route 53** *(optional)* | Manages DNS for custom domain |
 | **S3** *(optional)* | Stores backups or logs |
 
 ---
