@@ -35,7 +35,6 @@ This project demonstrates the deployment of a scalable and highly available stat
 3. Configure Auto Scaling Group linked to Launch Template.
 4. Attach IAM Role to EC2 instances.
 5. Set up CloudWatch alarms and SNS topics for alerts.
-6. (Optional) Configure HTTPS via ACM Certificate and Route 53 domain.
 
 ---
 
