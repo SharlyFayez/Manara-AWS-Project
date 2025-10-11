@@ -11,7 +11,7 @@ This project demonstrates the deployment of a scalable and highly available stat
 ---
 
 ## 🏗️ Architecture Diagram
-![Architecture Diagram](./architecture-diagram.png)
+![Architecture Diagram](./Project_Diagram.png)
 
 ---
 
