@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>موقعي الثابت — Hosted on AWS</title>
+
+  <!-- Google Font (سيتم جلبها عند التصفح) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #0f172a;
+      --card: #0b1220;
+      --accent: linear-gradient(90deg,#ff7a18,#ff4e50);
+      --muted: #94a3b8;
+      --glass: rgba(255,255,255,0.04);
+      --radius: 14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Cairo", system-ui, sans-serif;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(99,102,241,0.08), transparent),
+                  radial-gradient(1000px 500px at 90% 90%, rgba(16,185,129,0.03), transparent),
+                  var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+    }
+
+    /* container */
+    .wrap{
+      max-width:1100px;
+      margin:36px auto;
+      padding:28px;
+    }
+
+    /* header / nav */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:22px;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo{
+      width:50px;
+      height:50px;
+      border-radius:12px;
+      background:var(--accent);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:white;
+      box-shadow:0 6px 18px rgba(0,0,0,0.5);
+    }
+    .brand h1{
+      font-size:18px;
+      margin:0;
+      letter-spacing:0.3px;
+    }
+    .brand p{margin:0;font-size:13px;color:var(--muted)}
+
+    nav{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .btn{
+      background:transparent;
+      color:var(--muted);
+      padding:10px 14px;
+      border-radius:10px;
+      border:1px solid transparent;
+      cursor:pointer;
+      font-size:14px;
+    }
+    .btn.primary{
+      background:linear-gradient(90deg,#06b6d4,#3b82f6);
+      color:white;
+      box-shadow:0 8px 24px rgba(37,99,235,0.14);
+      border:none;
+    }
+
+    /* hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:28px;
+      align-items:center;
+      margin-bottom:28px;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:28px;
+      border-radius:var(--radius);
+      box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .hero h2{
+      font-size:28px;margin:0 0 8px 0;
+    }
+    .hero p{color:var(--muted); margin:0 0 18px 0}
+
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap}
+    .small-note{font-size:13px;color:var(--muted)}
+
+    /* preview box (right) */
+    .preview{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:16px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .browser-mock{
+      border-radius:8px;
+      overflow:hidden;
+      background:linear-gradient(180deg,#071029,#0b1220);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+    .browser-top{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      padding:10px;
+    }
+    .dot{width:11px;height:11px;border-radius:50%;background:#ff5f56;box-shadow:0 2px 6px rgba(0,0,0,0.5)}
+    .dot:nth-child(2){background:#ffbd2e}
+    .dot:nth-child(3){background:#27c93f}
+    .browser-body{
+      padding:20px;
+      background:linear-gradient(180deg,#041226,#061429);
+      color:var(--muted);
+    }
+    .url{
+      font-size:13px;padding:6px 10px;border-radius:8px;background:rgba(255,255,255,0.02);display:inline-block;
+    }
+
+    /* features */
+    .features{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      margin:22px 0 30px 0;
+    }
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      padding:18px;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow:0 6px 22px rgba(2,6,23,0.6);
+    }
+    .card h3{margin:0 0 8px 0}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* footer */
+    footer{
+      margin-top:30px;
+      padding:18px;
+      border-radius:12px;
+      background:var(--glass);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .links{display:flex;gap:12px;align-items:center}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .preview{order:-1}
+    }
+    @media (max-width:560px){
+      .features{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+      nav{width:100%;justify-content:space-between}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">SW</div>
+        <div>
+          <h1>موقع ثابت على AWS</h1>
+          <p>مُستضاف خلف ALB + Auto Scaling (تمثيلي)</p>
+        </div>
+      </div>
+
+      <nav>
+        <button class="btn">مميزات</button>
+        <button class="btn">التوثيق</button>
+        <button class="btn primary">جرب الآن</button>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <h2>مرحبًا بك في موقعي الثابت</h2>
+        <p>صفحة HTML واحدة بسيطة وسريعة، مُصممة لتعرض كيف يمكن استضافتها على EC2 خلف Application Load Balancer مع Auto Scaling. مناسبة لعرض مشروع التخرج.</p>
+
+        <div class="hero-actions">
+          <button class="btn primary" onclick="scrollToFeatures()">اعرض المميزات</button>
+          <button class="btn" onclick="copyExample()">انسخ الكود</button>
+        </div>
+
+        <div style="margin-top:18px" class="small-note">ملاحظة: لو هتستضيفها فعليًا، أوصي برفع الملفات إلى S3 أو استخدام AMI + user-data لسحبها تلقائيًا.</div>
+      </div>
+
+      <aside class="preview">
+        <div class="browser-mock">
+          <div class="browser-top" style="justify-content:flex-end;padding-right:16px">
+            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+          </div>
+          <div class="browser-body">
+            <div style="display:flex;align-items:center;gap:12px;justify-content:space-between">
+              <div>
+                <div class="url">http://alb-static-webapp.example</div>
+                <div style="margin-top:8px;font-size:15px;color:#fff;font-weight:600">عنوان الموقع</div>
+              </div>
+              <div style="text-align:left">
+                <div style="font-size:13px;color:var(--muted)">Status</div>
+                <div style="font-weight:700;color:#9ae6b4">Healthy</div>
+              </div>
+            </div>
+            <div style="margin-top:16px;color:var(--muted)">هذا معاينة مبسطة لشكل الصفحة عند فتحها من المتصفح.</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="features" class="features">
+      <div class="card">
+        <h3>واجهة نظيفة وسريعة</h3>
+        <div class="muted">HTML فقط مع CSS داخلي — خفيفة على الباندويدث وتتحمل لو اتضافت لـ EC2 أو S3</div>
+      </div>
+
+      <div class="card">
+        <h3>متجاوبة</h3>
+        <div class="muted">تصميم يستجيب لشاشات الجوال والتابلت والكمبيوتر تلقائيًا.</div>
+      </div>
+
+      <div class="card">
+        <h3>جاهزة للنشر</h3>
+        <div class="muted">انسخ الملف `index.html` وارفعه على EC2 أو S3 أو على أي سيرفر بسيط.</div>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <strong>موقع ثابت — مشروع التخرج</strong>
+        <div class="small">حقوق بسيطة • مصمم للعرض التعليمي</div>
+      </div>
+
+      <div class="links">
+        <div class="small">تحتاج مساعدة؟ اكتب لي هنا</div>
+        <div style="width:1px;height:28px;background:rgba(255,255,255,0.03)"></div>
+        <div class="small">GitHub: <span style="color:#60a5fa">your-username</span></div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // وظائف صغيرة للـ demo
+    function scrollToFeatures(){
+      document.getElementById('features').scrollIntoView({behavior:'smooth'});
+    }
+
+    function copyExample(){
+      const html = document.documentElement.outerHTML;
+      navigator.clipboard?.writeText(html).then(()=>{
+        alert('تم نسخ الكود كاملًا! يمكنك لصقه في ملف index.html');
+      }).catch(()=>alert('النسخ لم ينجح — افتح الصفحة في متصفح حديث أو انسخ يدويًا.'));
+    }
+  </script>
+</body>
+</html>
